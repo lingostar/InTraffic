@@ -25,8 +25,8 @@ final class DensityService: Sendable {
         try validate(response)
 
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy  = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .iso8601
+        // CodingKeys가 snake_case 매핑을 이미 처리하므로 .convertFromSnakeCase 사용하지 않음
+        decoder.dateDecodingStrategy = .custom(Self.supabaseDateDecoder)
 
         return try decoder.decode([ZoneDensity].self, from: data)
     }
@@ -52,7 +52,6 @@ final class DensityService: Sendable {
         try validate(response)
 
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode([HourlyDensity].self, from: data)
     }
 
@@ -63,5 +62,25 @@ final class DensityService: Sendable {
               (200...299).contains(http.statusCode) else {
             throw URLError(.badServerResponse)
         }
+    }
+
+    /// Supabase TIMESTAMPTZ 파싱 (마이크로초 포함 ISO 8601 대응)
+    private static func supabaseDateDecoder(_ decoder: Decoder) throws -> Date {
+        let container = try decoder.singleValueContainer()
+        let string    = try container.decode(String.self)
+
+        // ISO 8601 with fractional seconds
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        if let date = formatter.date(from: string) { return date }
+
+        // Fallback: without fractional seconds
+        formatter.formatOptions = [.withInternetDateTime]
+        if let date = formatter.date(from: string) { return date }
+
+        throw DecodingError.dataCorruptedError(
+            in: container,
+            debugDescription: "Cannot parse date: \(string)"
+        )
     }
 }

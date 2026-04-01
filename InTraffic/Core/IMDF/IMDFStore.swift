@@ -58,8 +58,7 @@ final class IMDFStore {
                     result.append(ZonePolygon(
                         id: level.identifier,
                         coordinates: polygon.coordinates,
-                        category: "level",
-                        densityLevel: nil
+                        category: "level"
                     ))
                 }
             }
@@ -69,8 +68,7 @@ final class IMDFStore {
                     result.append(ZonePolygon(
                         id: unit.identifier,
                         coordinates: polygon.coordinates,
-                        category: unit.properties.category,
-                        densityLevel: nil
+                        category: unit.properties.category
                     ))
                 }
             }
@@ -100,17 +98,40 @@ struct ZonePolygon: Identifiable {
     let id: UUID
     let coordinates: [CLLocationCoordinate2D]
     let category: String
-    var densityLevel: DensityLevel?
 
-    var fillColor: Color {
-        if let density = densityLevel {
-            return density.fillColor
-        }
-        return baseColor
-    }
-
+    /// 구조물 색상만 사용 (히트맵은 별도 HeatPoint로 렌더링)
+    var fillColor: Color { baseColor }
     var strokeColor: Color { Color(UIColor.systemGray3) }
     var lineWidth: CGFloat  { category == "level" ? 2.0 : 1.0 }
+
+    var centroid: CLLocationCoordinate2D {
+        guard !coordinates.isEmpty else {
+            return CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        }
+        let lat = coordinates.map(\.latitude).reduce(0, +) / Double(coordinates.count)
+        let lng = coordinates.map(\.longitude).reduce(0, +) / Double(coordinates.count)
+        return CLLocationCoordinate2D(latitude: lat, longitude: lng)
+    }
+
+    /// Shoelace 공식으로 폴리곤 면적 (m²) 계산
+    var areaInSquareMeters: Double {
+        guard coordinates.count >= 3 else { return 9.0 }
+        let center = centroid
+        let mPerDegreeLat = 111_320.0
+        let mPerDegreeLng = 111_320.0 * cos(center.latitude * .pi / 180.0)
+
+        var area = 0.0
+        let ref = coordinates[0]
+        for i in 0..<coordinates.count {
+            let j = (i + 1) % coordinates.count
+            let xi = (coordinates[i].longitude - ref.longitude) * mPerDegreeLng
+            let yi = (coordinates[i].latitude  - ref.latitude)  * mPerDegreeLat
+            let xj = (coordinates[j].longitude - ref.longitude) * mPerDegreeLng
+            let yj = (coordinates[j].latitude  - ref.latitude)  * mPerDegreeLat
+            area += xi * yj - xj * yi
+        }
+        return max(abs(area) / 2.0, 9.0)  // 최소 9m² (단일 셀)
+    }
 
     private var baseColor: Color {
         switch category {

@@ -8,9 +8,8 @@
 import Foundation
 
 enum SupabaseConfig {
-    // TODO: Supabase 프로젝트 생성 후 교체
-    static let projectURL = URL(string: "https://YOUR_PROJECT_ID.supabase.co")!
-    static let anonKey    = "YOUR_ANON_KEY"
+    static let projectURL = URL(string: "https://btebsochjzhsqhtxngdu.supabase.co")!
+    static let anonKey    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0ZWJzb2Noanpoc3FodHhuZ2R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5NjU3OTEsImV4cCI6MjA5MDU0MTc5MX0.T0pwufIR9_FArBrSrVh-LiyvsklFNR-DWF-65YYjwgA"
 
     // MARK: - Endpoint URLs
 

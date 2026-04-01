@@ -48,12 +48,19 @@ struct MapTabView: View {
                 bounds: mapBounds,
                 interactionModes: [.zoom, .pan, .rotate]
             ) {
-                // 폴리곤 오버레이
+                // 구조물 폴리곤 (색 없는 윤곽선 + 기본 구조색)
                 ForEach(viewModel.polygons) { polygon in
                     MapPolygon(coordinates: polygon.coordinates)
                         .foregroundStyle(polygon.fillColor)
                         .stroke(polygon.strokeColor, lineWidth: polygon.lineWidth)
                 }
+
+                // 히트맵 포인트 (밀도 기반 색상 원)
+                ForEach(viewModel.heatPoints) { point in
+                    MapCircle(center: point.coordinate, radius: point.radius)
+                        .foregroundStyle(point.densityLevel.color.opacity(point.opacity))
+                }
+
                 // 사용자 위치
                 UserAnnotation()
                     .mapOverlayLevel(level: .aboveLabels)
@@ -68,14 +75,12 @@ struct MapTabView: View {
             // MARK: 좌상단 컨트롤
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 10) {
-                    // 층 선택 팝오버
                     FloorPopoverButton(
                         floors: viewModel.allFloorLabels,
                         selectedIndex: viewModel.selectedFloorIndex,
                         onSelect: { viewModel.selectFloor(index: $0) }
                     )
                     Spacer()
-                    // 갱신 타이머 + 새로고침
                     Button {
                         viewModel.manualRefresh()
                     } label: {

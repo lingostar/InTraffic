@@ -3,48 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		010EA046ECDC254122E04C58 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A8EDC909C423937CF892CB /* OnboardingView.swift */; };
-		058F1C584E876C20045002CF /* address.geojson in Resources */ = {isa = PBXBuildFile; fileRef = ED242374C766DBD15BFFCE25 /* address.geojson */; };
-		07A6B6D0ECE362FD3A047E9D /* fixture.geojson in Resources */ = {isa = PBXBuildFile; fileRef = D775DC866300A8C937E7D6BB /* fixture.geojson */; };
 		0832458246802790B0B32042 /* StatsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F1EC118727EDDB8CECE2FD /* StatsTabView.swift */; };
 		09F4BD33B208FD2B799AD3A2 /* InTrafficApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C7B7B2C7D3434D2312C1FB /* InTrafficApp.swift */; };
 		0A1AEB950F044C163D3824ED /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F376C7A469933EC5EF44741 /* SettingsView.swift */; };
 		109C28C1BBB425D87A046A66 /* ZoneDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B6BCA2E5491EB8756B43B /* ZoneDetailSheet.swift */; };
 		2556A2568E86C4F600B30DC1 /* EventUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FC46B504385CBFC6BFE47A /* EventUploader.swift */; };
 		282B466621CEA74E31287DD6 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2E117842D26976C086BA89 /* Unit.swift */; };
-		291574353DE05EEDA3E73D9A /* unit.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 8B8E3F29C7C17B0E48D7E12D /* unit.geojson */; };
 		333C1EAE6498E82970C2963D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4CF7AB53C358CE778D64F2 /* ContentView.swift */; };
-		3818AFEDD13F0D228AF30FA1 /* amenity.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 0EBD2D22B2121CE52B3D33FB /* amenity.geojson */; };
 		3DE0AF9DC89092FE3CC66040 /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC10A3BE1B9DA54228DFB85 /* Amenity.swift */; };
-		408B02B6B632F22A864879D7 /* occupant.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 76B4E04B3346955E46EEDF52 /* occupant.geojson */; };
 		4700BDFF780302D24E250774 /* Opening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E8C0AD4CEA7708F78AE81 /* Opening.swift */; };
 		4725BC1AD93E58AEB24BBA38 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D8546192EE752C8F4961C /* Anchor.swift */; };
 		4850F494AE3A0A92F7B68871 /* MapTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C8D645FC86E2721FCAB68 /* MapTabViewModel.swift */; };
 		4EDFB58E4D3A5A4AD84769B1 /* Occupant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95A6792C06249E2EF1E088C /* Occupant.swift */; };
 		5D1EA51A211AD6CEC6DFCB4D /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2269C44DF1F48015498588 /* Venue.swift */; };
+		6611ABC7FB4E3A032EA9100B /* IMDF in Resources */ = {isa = PBXBuildFile; fileRef = F6BF51A4D39AA47A22C694B0 /* IMDF */; };
 		6F60F2CEDD6FCF47F644F8CC /* DensityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70878D815E1E45209A19E0F4 /* DensityService.swift */; };
-		7056B2273DD0750E409FB6D4 /* building.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7ECDD4886957261517340B8B /* building.geojson */; };
 		70FF52B985C7DBCD179C58A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CFB4572FBB7BE246C2C6F4A /* Assets.xcassets */; };
 		767979A6E98D72A8F5CA7A8C /* SupabaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EB712B11BA7FE7631AA4F1 /* SupabaseConfig.swift */; };
 		778C72A6C25A6236D4D2CCD2 /* DensityLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752A839AC9B320441391F48 /* DensityLegendView.swift */; };
 		8A1BCA78E5D2673433739A80 /* DensityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1151DF32FB1AF908FB4609D /* DensityLevel.swift */; };
-		8B369FE75A487FF445064949 /* anchor.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F2E6BAE7AD6D67C9D8714C3C /* anchor.geojson */; };
 		8CA4D5EB6B1A3517D45759E7 /* IMDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6499F6534597B69E79FE184 /* IMDFStore.swift */; };
 		926CFF5277A8684E8BC1BEF4 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CDBF05C8766EEE1A5A7EFA /* Level.swift */; };
-		9681C3135CC4092353FB08EE /* footprint.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 2056DB7F90A6041CCFFB4DA1 /* footprint.geojson */; };
 		99EEBDB138391F42D95E2ED1 /* LocalizedName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91025F1D13F5B6933BC5A489 /* LocalizedName.swift */; };
 		A78D04FD88C7B46FA26DAEDF /* ZoneDensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981C4A9D880D16BA66422CCF /* ZoneDensity.swift */; };
 		AE8212BC5B20AFC847D13925 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA787000AB603284C8A452A2 /* AppSettings.swift */; };
-		AF997FC262C5585A3D867183 /* level.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 84B40D8F8686E2BBC9751E8D /* level.geojson */; };
 		B1DC2576001C3615A72F6BC3 /* DensityEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3156DEEDF77E42ADBBCC1 /* DensityEvent.swift */; };
 		CB7BECBF4F9746E28648760E /* ZoneResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58DEA9170624838F5A34C66 /* ZoneResolver.swift */; };
-		CC9CB82E77A15C8DD0424EEE /* venue.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 78B0C9872408D64D5E86E65A /* venue.geojson */; };
 		CECC137545B3337B49062ED3 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F521BEE5CAD19D3495BA88 /* MapTabView.swift */; };
-		CEE35649FC67C7BCEBE77DD1 /* opening.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 47720596C1658DA09A3489E5 /* opening.geojson */; };
 		D9E4E8FFCE64DD408DC56BFD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2D7DDDADAFB5413AC18D78 /* LocationManager.swift */; };
 		DCDDA021428831F8A1C4D21C /* IMDFFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893826F5E53CE9E57D94B3E6 /* IMDFFeature.swift */; };
 		E15257190835B25F10E0B5A8 /* IMDFDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F93AC3D8CCE43236A266DB /* IMDFDecoder.swift */; };
@@ -53,9 +43,7 @@
 
 /* Begin PBXFileReference section */
 		0AC10A3BE1B9DA54228DFB85 /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
-		0EBD2D22B2121CE52B3D33FB /* amenity.geojson */ = {isa = PBXFileReference; path = amenity.geojson; sourceTree = "<group>"; };
 		1F6C8D645FC86E2721FCAB68 /* MapTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabViewModel.swift; sourceTree = "<group>"; };
-		2056DB7F90A6041CCFFB4DA1 /* footprint.geojson */ = {isa = PBXFileReference; path = footprint.geojson; sourceTree = "<group>"; };
 		2752A839AC9B320441391F48 /* DensityLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DensityLegendView.swift; sourceTree = "<group>"; };
 		2F2D7DDDADAFB5413AC18D78 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2F376C7A469933EC5EF44741 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -63,7 +51,6 @@
 		34F1EC118727EDDB8CECE2FD /* StatsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTabView.swift; sourceTree = "<group>"; };
 		3D2269C44DF1F48015498588 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		41CDBF05C8766EEE1A5A7EFA /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		47720596C1658DA09A3489E5 /* opening.geojson */ = {isa = PBXFileReference; path = opening.geojson; sourceTree = "<group>"; };
 		4B2E117842D26976C086BA89 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		4F4CF7AB53C358CE778D64F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		507F9F17E677F9CA75E953E2 /* FloorPopoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPopoverButton.swift; sourceTree = "<group>"; };
@@ -73,12 +60,7 @@
 		6CFB4572FBB7BE246C2C6F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70878D815E1E45209A19E0F4 /* DensityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DensityService.swift; sourceTree = "<group>"; };
 		72FC46B504385CBFC6BFE47A /* EventUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUploader.swift; sourceTree = "<group>"; };
-		76B4E04B3346955E46EEDF52 /* occupant.geojson */ = {isa = PBXFileReference; path = occupant.geojson; sourceTree = "<group>"; };
-		78B0C9872408D64D5E86E65A /* venue.geojson */ = {isa = PBXFileReference; path = venue.geojson; sourceTree = "<group>"; };
-		7ECDD4886957261517340B8B /* building.geojson */ = {isa = PBXFileReference; path = building.geojson; sourceTree = "<group>"; };
-		84B40D8F8686E2BBC9751E8D /* level.geojson */ = {isa = PBXFileReference; path = level.geojson; sourceTree = "<group>"; };
 		893826F5E53CE9E57D94B3E6 /* IMDFFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMDFFeature.swift; sourceTree = "<group>"; };
-		8B8E3F29C7C17B0E48D7E12D /* unit.geojson */ = {isa = PBXFileReference; path = unit.geojson; sourceTree = "<group>"; };
 		8D0E8C0AD4CEA7708F78AE81 /* Opening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opening.swift; sourceTree = "<group>"; };
 		91025F1D13F5B6933BC5A489 /* LocalizedName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedName.swift; sourceTree = "<group>"; };
 		981C4A9D880D16BA66422CCF /* ZoneDensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDensity.swift; sourceTree = "<group>"; };
@@ -87,15 +69,13 @@
 		C95A6792C06249E2EF1E088C /* Occupant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occupant.swift; sourceTree = "<group>"; };
 		D1151DF32FB1AF908FB4609D /* DensityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DensityLevel.swift; sourceTree = "<group>"; };
 		D4B3156DEEDF77E42ADBBCC1 /* DensityEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DensityEvent.swift; sourceTree = "<group>"; };
-		D775DC866300A8C937E7D6BB /* fixture.geojson */ = {isa = PBXFileReference; path = fixture.geojson; sourceTree = "<group>"; };
 		EC7D8546192EE752C8F4961C /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
-		ED242374C766DBD15BFFCE25 /* address.geojson */ = {isa = PBXFileReference; path = address.geojson; sourceTree = "<group>"; };
-		F2E6BAE7AD6D67C9D8714C3C /* anchor.geojson */ = {isa = PBXFileReference; path = anchor.geojson; sourceTree = "<group>"; };
 		F3F521BEE5CAD19D3495BA88 /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
 		F58DEA9170624838F5A34C66 /* ZoneResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneResolver.swift; sourceTree = "<group>"; };
 		F6499F6534597B69E79FE184 /* IMDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMDFStore.swift; sourceTree = "<group>"; };
+		F6BF51A4D39AA47A22C694B0 /* IMDF */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMDF; path = InTraffic/Resources/IMDF; sourceTree = SOURCE_ROOT; };
 		FA787000AB603284C8A452A2 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		FFCD10FA9B5BA224D616F495 /* InTraffic.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = InTraffic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCD10FA9B5BA224D616F495 /* InTraffic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InTraffic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -232,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				6CFB4572FBB7BE246C2C6F4A /* Assets.xcassets */,
+				F6BF51A4D39AA47A22C694B0 /* IMDF */,
 				6A8E7FC3DE623D28DC76C596 /* Info.plist */,
-				F5B17EBA614C139BD91EC544 /* IMDF */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -263,24 +243,6 @@
 				C6C7B7B2C7D3434D2312C1FB /* InTrafficApp.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		F5B17EBA614C139BD91EC544 /* IMDF */ = {
-			isa = PBXGroup;
-			children = (
-				ED242374C766DBD15BFFCE25 /* address.geojson */,
-				0EBD2D22B2121CE52B3D33FB /* amenity.geojson */,
-				F2E6BAE7AD6D67C9D8714C3C /* anchor.geojson */,
-				7ECDD4886957261517340B8B /* building.geojson */,
-				D775DC866300A8C937E7D6BB /* fixture.geojson */,
-				2056DB7F90A6041CCFFB4DA1 /* footprint.geojson */,
-				84B40D8F8686E2BBC9751E8D /* level.geojson */,
-				76B4E04B3346955E46EEDF52 /* occupant.geojson */,
-				47720596C1658DA09A3489E5 /* opening.geojson */,
-				8B8E3F29C7C17B0E48D7E12D /* unit.geojson */,
-				78B0C9872408D64D5E86E65A /* venue.geojson */,
-			);
-			path = IMDF;
 			sourceTree = "<group>";
 		};
 		FF6104665EDC3FE5AAC3BB5C /* Models */ = {
@@ -322,11 +284,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-					6CA39E010A3C6ECA94A9C6A0 = {
-						DevelopmentTeam = "";
-					};
-				};
 			};
 			buildConfigurationList = 6E10D73F1B6C09F2939E424F /* Build configuration list for PBXProject "InTraffic" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -338,7 +295,6 @@
 			);
 			mainGroup = E45CAA669CBAE65610C79B01;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -353,17 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70FF52B985C7DBCD179C58A5 /* Assets.xcassets in Resources */,
-				058F1C584E876C20045002CF /* address.geojson in Resources */,
-				3818AFEDD13F0D228AF30FA1 /* amenity.geojson in Resources */,
-				8B369FE75A487FF445064949 /* anchor.geojson in Resources */,
-				7056B2273DD0750E409FB6D4 /* building.geojson in Resources */,
-				07A6B6D0ECE362FD3A047E9D /* fixture.geojson in Resources */,
-				9681C3135CC4092353FB08EE /* footprint.geojson in Resources */,
-				AF997FC262C5585A3D867183 /* level.geojson in Resources */,
-				408B02B6B632F22A864879D7 /* occupant.geojson in Resources */,
-				CEE35649FC67C7BCEBE77DD1 /* opening.geojson in Resources */,
-				291574353DE05EEDA3E73D9A /* unit.geojson in Resources */,
-				CC9CB82E77A15C8DD0424EEE /* venue.geojson in Resources */,
+				6611ABC7FB4E3A032EA9100B /* IMDF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = InTraffic/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -433,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = InTraffic/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -5,9 +5,11 @@
 import SwiftUI
 
 struct DensityLegendView: View {
+    private let visibleLevels: [DensityLevel] = [.low, .moderate, .busy, .crowded, .extreme]
+
     var body: some View {
         HStack(spacing: 12) {
-            ForEach(DensityLevel.allCases.filter { $0 != .unknown }, id: \.self) { level in
+            ForEach(visibleLevels, id: \.self) { level in
                 HStack(spacing: 4) {
                     Circle()
                         .fill(level.color)

@@ -21,6 +21,10 @@ targets:
       - path: InTraffic
         excludes:
           - "**/.DS_Store"
+          - Resources/IMDF
+      - path: InTraffic/Resources/IMDF
+        type: folder
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.intrafficapp.InTraffic

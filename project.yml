@@ -29,7 +29,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.intrafficapp.InTraffic
         INFOPLIST_FILE: InTraffic/Resources/Info.plist
-        DEVELOPMENT_TEAM: ""
+        DEVELOPMENT_TEAM: 4QG3GC35LA
         SWIFT_STRICT_CONCURRENCY: complete
     info:
       path: InTraffic/Resources/Info.plist

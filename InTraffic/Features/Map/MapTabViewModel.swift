@@ -8,7 +8,7 @@ import SwiftUI
 // MARK: - HeatPoint
 
 struct HeatPoint: Identifiable {
-    let id: Int          // 안정적 ID (애니메이션용)
+    let id: Int
     let coordinate: CLLocationCoordinate2D
     let densityLevel: DensityLevel
     let radius: CLLocationDistance   // 미터
@@ -22,7 +22,6 @@ private struct SeededRNG: RandomNumberGenerator {
 
     init(seed: Int) {
         state = UInt64(bitPattern: Int64(seed))
-        // warm up
         for _ in 0..<4 { _ = next() }
     }
 
@@ -49,6 +48,13 @@ final class MapTabViewModel {
     var errorMessage: String?    = nil
     var selectedZone: (zone: ZonePolygon, density: ZoneDensity?)? = nil
     var refreshCountdown: Int    = 30
+
+    // MARK: - 현재 사용자 위치 추적
+
+    /// 현재 사용자의 실제 좌표 (히트맵에서 본인 위치에 dot 배치용)
+    private var currentUserCoordinate: CLLocationCoordinate2D?
+    /// 현재 사용자가 속한 Zone ID
+    private var currentUserZoneId: String?
 
     // MARK: - Dependencies
 
@@ -154,42 +160,48 @@ final class MapTabViewModel {
             let countPerCell = Double(count) * 9.0 / areaM2
             let level = DensityLevel.from(countPerCell: countPerCell)
 
+            let isCurrentUserZone = (zoneId == currentUserZoneId)
+
+            // 1인 = 1 dot (사람 수와 정확히 일치)
+            let dotCount = min(count, 30)
+
             let centroid = polygon.centroid
-
-            // 점 개수: 사람 수에 비례 (최소 2, 최대 30)
-            let dotCount = min(max(count * 2, 2), 30)
-
-            // 폴리곤 경계 크기에 비례한 분산 범위
             let (latSpread, lngSpread) = polygonSpread(polygon.coordinates)
-
             var rng = SeededRNG(seed: polygon.id.hashValue &+ count)
 
-            for _ in 0..<dotCount {
-                let latOffset = Double.random(in: -latSpread...latSpread, using: &rng)
-                let lngOffset = Double.random(in: -lngSpread...lngSpread, using: &rng)
+            for i in 0..<dotCount {
+                let coord: CLLocationCoordinate2D
 
-                let coord = CLLocationCoordinate2D(
-                    latitude: centroid.latitude + latOffset,
-                    longitude: centroid.longitude + lngOffset
-                )
+                // 첫 번째 dot: 현재 사용자의 Zone이면 실제 좌표 사용
+                if i == 0, isCurrentUserZone, let userCoord = currentUserCoordinate {
+                    coord = userCoord
+                } else {
+                    // 나머지: centroid 주변 분산
+                    let latOffset = Double.random(in: -latSpread...latSpread, using: &rng)
+                    let lngOffset = Double.random(in: -lngSpread...lngSpread, using: &rng)
+                    coord = CLLocationCoordinate2D(
+                        latitude: centroid.latitude + latOffset,
+                        longitude: centroid.longitude + lngOffset
+                    )
+                }
 
-                // 외곽 글로우 (큰 반경, 낮은 투명도)
+                // 외곽 글로우
                 points.append(HeatPoint(
                     id: globalIndex,
                     coordinate: coord,
                     densityLevel: level,
-                    radius: 6,
-                    opacity: 0.12
+                    radius: 7,
+                    opacity: 0.15
                 ))
                 globalIndex += 1
 
-                // 내부 코어 (작은 반경, 높은 투명도)
+                // 내부 코어
                 points.append(HeatPoint(
                     id: globalIndex,
                     coordinate: coord,
                     densityLevel: level,
-                    radius: 3,
-                    opacity: 0.30
+                    radius: 3.5,
+                    opacity: 0.35
                 ))
                 globalIndex += 1
             }
@@ -269,6 +281,10 @@ final class MapTabViewModel {
         guard let unit = zoneResolver.resolve(coordinate: coordinate, floorOrdinal: currentOrdinal) else {
             return
         }
+
+        // 현재 사용자의 실제 좌표 + Zone 기록 (히트맵 배치용)
+        currentUserCoordinate = coordinate
+        currentUserZoneId     = unit.identifier.uuidString
 
         let event = DensityEvent(
             zoneId: unit.identifier.uuidString,

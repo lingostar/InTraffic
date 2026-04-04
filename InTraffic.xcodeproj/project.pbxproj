@@ -284,6 +284,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					6CA39E010A3C6ECA94A9C6A0 = {
+						DevelopmentTeam = 4QG3GC35LA;
+					};
+				};
 			};
 			buildConfigurationList = 6E10D73F1B6C09F2939E424F /* Build configuration list for PBXProject "InTraffic" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -363,14 +368,20 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = InTraffic/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InTraffic;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intrafficapp.InTraffic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mentorLingo.InTraffic;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,14 +392,20 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = InTraffic/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InTraffic;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.intrafficapp.InTraffic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mentorLingo.InTraffic;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

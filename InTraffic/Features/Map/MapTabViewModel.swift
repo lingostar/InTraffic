@@ -99,13 +99,16 @@ final class MapTabViewModel {
     // MARK: - Lifecycle
 
     func onAppear() {
+        // IMDF 로드 후 기본 층을 L5 (ordinal 4) 로 설정
+        setDefaultFloor()
+
         loadPolygons()
         startPolling()
         startCountdown()
 
-        locationManager.onLocationUpdate = { [weak self] coordinate in
+        locationManager.onLocationUpdate = { [weak self] coordinate, floor in
             Task { @MainActor [weak self] in
-                self?.handleLocationUpdate(coordinate)
+                self?.handleLocationUpdate(coordinate, detectedFloor: floor)
             }
         }
         locationManager.startForegroundUpdates()
@@ -274,7 +277,34 @@ final class MapTabViewModel {
 
     // MARK: - Private: 위치 이벤트
 
-    private func handleLocationUpdate(_ coordinate: CLLocationCoordinate2D) {
+    /// IMDF 기본 층 설정 — L5(ordinal 4)를 기본으로, 없으면 마지막 층
+    private func setDefaultFloor() {
+        if let l5Index = imdfStore.levels.firstIndex(where: { $0.properties.ordinal == 4 }) {
+            selectedFloorIndex = l5Index
+        } else if !imdfStore.levels.isEmpty {
+            selectedFloorIndex = imdfStore.levels.count - 1
+        }
+    }
+
+    /// CLLocation.floor 기반 자동 층 전환
+    private func autoSwitchFloor(_ clFloor: CLFloor?) {
+        guard let level = clFloor?.level else { return }
+        // CLFloor.level은 0-based (0=1층, 4=5층). IMDF ordinal과 동일
+        if let idx = imdfStore.levels.firstIndex(where: { $0.properties.ordinal == level }) {
+            if selectedFloorIndex != idx {
+                selectedFloorIndex = idx
+                loadPolygons()
+            }
+        }
+    }
+
+    private func handleLocationUpdate(
+        _ coordinate: CLLocationCoordinate2D,
+        detectedFloor: CLFloor?
+    ) {
+        // 실내 위치 서비스가 층을 감지하면 자동 전환
+        autoSwitchFloor(detectedFloor)
+
         guard AppSettings.participatesInDataCollection else { return }
 
         let zoneResolver = ZoneResolver(imdfStore: imdfStore)

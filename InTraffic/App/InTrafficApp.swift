@@ -9,7 +9,11 @@ struct InTrafficApp: App {
 
     // MARK: - Core Services (앱 수명 동안 단일 인스턴스)
 
-    @State private var imdfStore     = IMDFStore()
+    @State private var imdfStore: IMDFStore = {
+        let store = IMDFStore()
+        store.load()   // 로컬 번들 파일 → 동기 즉시 로드 (< 100ms)
+        return store
+    }()
     @State private var locationManager = LocationManager()
 
     private let densityService = DensityService()
@@ -25,10 +29,6 @@ struct InTrafficApp: App {
                 eventUploader: eventUploader,
                 locationManager: locationManager
             )
-            .task {
-                // IMDF 데이터 비동기 로드 (앱 시작 즉시)
-                await imdfStore.load()
-            }
         }
     }
 }
